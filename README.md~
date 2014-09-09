@@ -1,4 +1,14 @@
 WechatDebug
 ===========
 
-微信接口本地调试工具
+微信接口本地调试工具，是一个方便微信公共平台开发者进行本地开发的调试工具。部分的代码来自[微擎](http://www.we7.cc/)的调试工具，对此表示感谢。
+##使用方法
+运行`WechatDebug/index/index.html`文件，并在配置项中配置你的接口路径，以及发送者账号，接收者账号。
+![image](https://github.com/blue7wings/WechatDebug/raw/master/img/2014-09-09 19:20:06 的屏幕截图.png)
+##主要功能
+1. 接收返回的文本消息，单图文消息，多图文消息。
+![image](https://github.com/blue7wings/WechatDebug/raw/master/img/2014-09-09 19:35:38 的屏幕截图.png)
+2. 显示返回的xml，出现错误会显示错误信息或者调试信息。
+![image](https://github.com/blue7wings/WechatDebug/raw/master/img/2014-09-09 19:37:46 的屏幕截图.png)
+##版本v1.01
+
