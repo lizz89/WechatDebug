@@ -1,0 +1,23 @@
+.me .cloudBody {
+  border: 1px solid #7AA23F;
+  box-shadow: 0px 1px 0px #D5D5D5;
+  border: 1px solid #9f9f9f\9;
+  background-color: #B2CF73;
+}
+.me .cloudContent {
+  border-top: 1px solid #DCE6C8;
+  border-bottom: 1px solid #B9CF8B;
+  border-left: 1px solid #CCDEA3;
+  padding: 13px\9;
+  padding: 7px 10px;
+  border-radius: 13px\9;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  overflow: hidden;
+  color: #000;
+  text-shadow: none;
+  background: #B2CF73\9;
+  background: -webkit-gradient(linear, left top, left bottom, from(#cdeb96), to(#a4c363), color-stop(0.1, #b4d174), color-stop(0.3, #b2cf73), color-stop(0.5, #afcc74), color-stop(0.7, #abca6c), color-stop(0.9, #a9c572), color-stop(1, #a4c363));
+  background-image: -moz-linear-gradient(top, #b4d174 10%, #b2cf73 30%, #afcc74 50%, #abca6c 70%, #a9c572 90%, #a4c363 100%);
+}
