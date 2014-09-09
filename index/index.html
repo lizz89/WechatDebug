@@ -45,41 +45,121 @@
 										<div style="height: 700px; overflow-y: scroll; position: relative;" class="chatScorll">
 
 											<!-- 消息列表： -->
-											<div style="top: 0px; position: absolute;" ctrl="1" id="chat_chatmsglist" class="chatContent" >
-													<div class="chatItem me" id="example_me">
-														<div class="chatItemContent">
-																<img class="avatar" src="../source/images/fromusericon.jpeg">
-																<div class="cloud cloudText" un="cloud_1023801802" msgid="1023801802">
-																	<div class="cloudPannel" style="">
-																		<div class="sendStatus">
+										<div style="top: 0px; position: absolute;" ctrl="1" id="chat_chatmsglist" class="chatContent" >
+												<!-- 我发送的消息模板 -->
+												<div class="chatItem me" id="example_me">
+													<div class="chatItemContent">
+															<img class="avatar" src="../source/images/fromusericon.jpeg">
+															<div class="cloud cloudText" un="cloud_1023801802" msgid="1023801802">
+																<div class="cloudPannel" style="">
+																	<div class="sendStatus">
+																	</div>
+																	<div class="cloudBody">
+																		<div class="cloudContent">
+																		Hello world
 																		</div>
-																		<div class="cloudBody">
-																			<div class="cloudContent">
-																			你好世界
-																			</div>
+																	</div>
+																	<div class="cloudArrow "></div>
+																</div>
+															</div>
+													</div>
+												</div>
+												<!-- 返回的消息模板 -->
+												<div class="chatItem you" id="example_you">
+													<div class="chatItemContent">
+															<img class="avatar" src="../source/images/tousericon.png">
+															<div class="cloud cloudText" un="cloud_1023801802" msgid="1023801802">
+																<div class="cloudPannel" style="">
+																	<div class="sendStatus">
+																	</div>
+																	<div class="cloudBody">
+																		<div class="cloudContent">
+																		你好世界
 																		</div>
-																		<div class="cloudArrow "></div>
+																	</div>
+																	<div class="cloudArrow "></div>
+																</div>
+															</div>
+													</div>
+												</div>
+												<!-- 单图文模板 -->
+												<div class="chatItem you" style="display:none;" id="example_new">
+														<div class="media mediaFullText">
+														<a href="#" style="text-decoration: none;" target="_blank"></a>
+														<div class="mediaPanel">
+															<a href="#" style="text-decoration: none;" target="_blank">
+																<div class="mediaHead">
+																	<span class="title left">hello world</span>
+																	<span class="time right">09-06</span>
+																	<div class="clr">
 																	</div>
 																</div>
+																<!-- 图片 -->
+																<div class="mediaImg">
+																<img src="../img/0.jpeg" style="visibility: inherit; height: 244.664px; width: 365px; top: -40.332px; left: 0px;">
+																</div>
+																<!-- 内容 -->
+																<div class="mediaContent mediaContentP"><p>你好世界</p>
+																</div>
+															</a>
+															<div class="mediaFooter">
+																<a href="#" style="text-decoration: none;" target="_blank">
+																</a>
+																<a href="#" style="text-decoration: none;" target="_blank">
+																	<span class="mesgIcon left"></span>
+																	<span class="left" style="line-height:39px;">查看全文</span>
+																	<div class="clr"></div>
+																</a>
+															</div>
 														</div>
 													</div>
-													<div class="chatItem you" id="example_you">
-														<div class="chatItemContent">
-																<img class="avatar" src="../source/images/tousericon.png">
-																<div class="cloud cloudText" un="cloud_1023801802" msgid="1023801802">
-																	<div class="cloudPannel" style="">
-																		<div class="sendStatus">
+												</div>
+
+												<!-- 多图文模板 -->
+												<div class="chatItem you" id="example_news" style="display:none">
+														<!--media mesg-->
+														<div class="media">
+																<div class="mediaPanel">
+																		<!-- 第一篇大图文章 -->
+																		<a href="#" target="_blank" id="mesgTitleLink">
+																				<div class="mediaImg">
+																						<div class="mediaImgPanel">
+																								<img src="../img/3.jpeg" style="visibility: inherit; height: 281.164px; width: 365px; top: -58.582px; left: 0px;">
+																						</div>
+																						<div class="mediaImgFooter">
+																								<p class="mesgTitleTitle left">
+																										心情迹|柴静：什么叫气质 ？
+																								</p>
+																								<div class="clr">
+																								</div>
+																						</div>
+																				</div>
+																		</a>
+																		<!-- 文章列表 -->
+																		<div class="mediaContent">
+																				<a href="#"　target="_blank" id="example_news_iterm" style="display:none;">
+																						<div class="mediaMesg">
+																								<span class="mediaMesgDot">
+																								</span>
+																								<div class="mediaMesgTitle left">
+																										<p class="left">
+																												心情迹|李安：这世界上唯一扛得住岁月摧残的就是才华
+																										</p>
+																										<div class="clr">
+																										</div>
+																								</div>
+																								<div class="mediaMesgIcon right">
+																										<img src="../img/1.jpeg">
+																								</div>
+																								<div class="clr">
+																								</div>
+																						</div>
+																				</a>
 																		</div>
-																		<div class="cloudBody">
-																			<div class="cloudContent">
-																			好你MLGB
-																			</div>
-																		</div>
-																		<div class="cloudArrow "></div>
-																	</div>
 																</div>
 														</div>
-													</div>
+												</div>
+
 											</div>
 
 

@@ -139,27 +139,30 @@ function formatXml(xml) {
               if(MsgType=='text'){
                 var Content = xml.getElementsByTagName("Content")[0].firstChild.nodeValue;
                 Content = nl2br(Content);
-                addYouTochalist('text',Content);
+                addYouTochatlist('text',Content);
               }else if(MsgType == 'news'){
-                var Title = xml.getElementsByTagName("Title")[0].firstChild.nodeValue;
-                var Description = xml.getElementsByTagName("Description")[0].firstChild.nodeValue;
-                var PicUrl = xml.getElementsByTagName("PicUrl")[0].firstChild.nodeValue;
-                var Url = xml.getElementsByTagName("Url")[0].firstChild.nodeValue;
-                $('#svtitle').html(Title);
-                $('#svinfo').html(Description);
-                $('#svpic').attr('src', PicUrl);
-                $('#svurlbox').show().find('a#svurl').attr('href', Url);
-                var titleObj = xml.getElementsByTagName("Title");
-                if(titleObj.length>1){
-                  var svinfolist = imghtml = '';
+                var arr            = new Array();
+                arr['Title']       = xml.getElementsByTagName("Title")[0].firstChild.nodeValue;
+                arr['Description'] = xml.getElementsByTagName("Description")[0].firstChild.nodeValue;
+                arr['PicUrl']      = xml.getElementsByTagName("PicUrl")[0].firstChild.nodeValue;
+                arr['Url']         = xml.getElementsByTagName("Url")[0].firstChild.nodeValue;
+                var TitleObj = xml.getElementsByTagName("Title");
+                // 多图文消息
+                if(TitleObj.length>1){
                   var UrlObj = xml.getElementsByTagName("Url");
                   var PicUrlObj = xml.getElementsByTagName("PicUrl");
-                  for(var ti=1;ti<titleObj.length;ti++){
-                    imghtml = PicUrlObj[ti].firstChild.nodeValue ? '<img align="right" src="'+PicUrlObj[ti].firstChild.nodeValue+'">' : '';
-                    svinfolist += '<p class="clearfix" onclick="popensvurl(\''+UrlObj[ti].firstChild.nodeValue+'\')">'+titleObj[ti].firstChild.nodeValue+imghtml+'</p>';
+                  arr['Iterm'] = new Array();
+                  for(var ti=1;ti<TitleObj.length;ti++){
+                    arr['Iterm'][ti] = new Array();
+                    arr['Iterm'][ti]['PicUrl'] =  PicUrlObj[ti].firstChild.nodeValue;
+                    arr['Iterm'][ti]['Url'] = UrlObj[ti].firstChild.nodeValue;
+                    arr['Iterm'][ti]['Title'] = TitleObj[ti].firstChild.nodeValue;
                   }
-                  $('div.mediaFooterbox', $('#demoSendBox')).hide();
-                  $('#svinfolist').show().html(svinfolist);
+                  addYouTochatlist('news',arr);
+                }
+                // 单图文消息
+                else{
+                  addYouTochatlist('a_new',arr);
                 }
               }
             }
@@ -183,13 +186,43 @@ function formatXml(xml) {
   }
 
   // 将服务器返回的消息发送到消息框
-  function addYouTochalist(type,content){
+  function addYouTochatlist(type,content){
     var chatlist = $('#chat_chatmsglist');
-    if (type = 'text') {
+    // 文本消息
+    if (type == 'text') {
       var thisIterm = $('#example_you').clone();
       thisIterm.appendTo(chatlist).find(".cloudContent").empty().append(content);
       var thisItermPos = thisIterm.position();
       $('#chat').scrollTop(thisItermPos.top);
+    }
+    // 单图文消息
+    else if (type == 'a_new') {
+      var this_new = $('#example_new').clone();
+      this_new.find('.title').text(content['Title']);
+      this_new.find('.mediaContent').text(content['Description']);
+      this_new.find('.mediaImg > img').attr('src',content['PicUrl']);
+      this_new.find('.mediaFooter > a').attr('href',content['Url']);
+      chatlist.append(this_new.show());
+    }
+    // 多图文消息
+    else if (type == 'news'){
+      var this_news = $('#example_news').clone();
+      this_news.find('#mesgTitleLink').attr('href',content['Url']);
+      this_news.find('.mediaImgPanel > img').attr('src',content['PicUrl']);
+      this_news.find('.mesgTitleTitle').text(content['Title']);
+      var this_news_iterm = content['Iterm'];
+      for(idx in this_news_iterm){
+        var iterm_Url    = this_news_iterm[idx]['Url'];
+        var iterm_PicUrl = this_news_iterm[idx]['PicUrl'];
+        var iterm_Title  = this_news_iterm[idx]['Title'];
+        var example_news_iterm = this_news.find('#example_news_iterm').clone().removeAttr('id');
+        console.log(this_news_iterm[idx]);
+        example_news_iterm.attr('href',iterm_Url);
+        example_news_iterm.find('.mediaMesgTitle > p').text(iterm_Title);
+        example_news_iterm.find('.mediaMesgIcon > img').attr('src',iterm_PicUrl);
+        this_news.find('.mediaContent').append(example_news_iterm.show());
+      }
+      chatlist.append(this_news.show());
     }
   }
 
