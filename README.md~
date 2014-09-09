@@ -11,15 +11,25 @@ WechatDebug
 1. 接收返回的文本消息，单图文消息，多图文消息。
 ![image](https://github.com/blue7wings/WechatDebug/raw/master/img/2014-09-09 19:35:38 的屏幕截图.png)
 2. 显示返回的xml，出现错误会显示错误信息或者调试信息。
+
 **正确返回xml**
+
 ![image](https://github.com/blue7wings/WechatDebug/raw/master/img/2014-09-09 19:37:46 的屏幕截图.png)
+
 **出现错误**
+
 ![image](https://github.com/blue7wings/WechatDebug/raw/master/img/2014-09-09 19:39:24 的屏幕截图.png)
+
 **使用`var_dump()`进行调试**
+
 ![image](https://github.com/blue7wings/WechatDebug/raw/master/img/2014-09-09 19:42:00 的屏幕截图.png)
+
 ##TODO
+
 增加对图片，位置，等其他事件的支持。
+
 对话添加到对话列表，滑动条自动滚动到最底下。
+
 ##版本更新
 2014-9-9 增加对单图文和多图文回复的支持
 
